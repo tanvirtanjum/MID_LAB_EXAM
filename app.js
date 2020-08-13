@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 var login 		= require('./controller/login');
 var admin 		= require('./controller/admin');
 var employee 		= require('./controller/employee');
+var addemployee = require('./controller/addemployee');
+var allemployeelist = require('./controller/allemployeelist');
 
 var app 		= express();
 
@@ -24,6 +26,8 @@ app.use(function(req, res, next)
 app.use('/login', login);
 app.use('/admin', admin);
 app.use('/employee', employee);
+app.use('/admin/addemployee', addemployee);
+app.use('/admin/allemployeelist', allemployeelist);
 
 
 app.get('/', function(req, res)
