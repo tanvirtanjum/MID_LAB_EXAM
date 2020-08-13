@@ -14,28 +14,34 @@ router.post('/', function(req, res)
   {
 		username: req.body.username,
 		pass: req.body.pass
-	}
+	};
 
 	log_in.validateLogin(user, function(response)
   {
 		if(response.length > 0)
     {
 			req.session.type = response[0].status;
-			if(req.body.type == 1)
+			req.session.username = response[0].username;
+
+			if(req.session.type == 1)
 		  {
 				res.redirect('/admin');
 			}
 
-		  else if(req.body.type == 2)
+		  else if(req.session.type == 2)
 		  {
 				res.redirect('/employee');
 			}
+
+			else
+	    {
+	      res.send('RESTRITED');
+	    }
 		}
     else
     {
       res.send('Somethong Went Wrong....');
     }
-
 	});
 });
 

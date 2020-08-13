@@ -20,7 +20,7 @@ router.post('/', function(req, res)
 
 	log_in.addLogin(user, function(resp)
 	{
-		res.redirect('/admin/addemployee');
+		res.redirect('/admin/allemployeelist');
 	})
 });
 

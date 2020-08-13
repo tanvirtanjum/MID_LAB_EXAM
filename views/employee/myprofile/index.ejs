@@ -7,23 +7,23 @@
     <form method='post'>
     <table>
       <tr>
-        <td> Name </td>
-        <td> <input type='text' name='n' value='Al-Amin' readonly> </td>
+        <td> USER NAME </td>
+        <td> <input type='text' name='n' value='<%= list[0].username %>' readonly> </td>
       </tr>
 
       <tr>
-        <td> Phone </td>
-        <td> <input type='text' name='p' value='01515217000' readonly> </td>
+        <td> FULL NAME </td>
+        <td> <input type='text' name='p' value='<%= list[0].fname %>' readonly> </td>
       </tr>
 
       <tr>
         <td> Designnation </td>
-        <td> <input type='text' name='d' value='Manager' readonly> </td>
+        <td> <input type='text' name='d' value='<%= list[0].status %>' readonly> </td>
       </tr>
 
       <tr>
-        <td> Blood Group: </td>
-        <td> <input type='text' name='b' value='O+' readonly> </td>
+        <td> PASS: </td>
+        <td> <input type='text' name='b' value='<%= list[0].pass %>' readonly> </td>
       </tr>
     </table>
     </form>
