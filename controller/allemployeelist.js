@@ -1,30 +1,15 @@
 var express = require('express');
-//var popup = require('popups');
 var router = express.Router();
 
+var log_in 	= require.main.require('./models/log_in');
 
 router.get('/', function(req, res)
 {
-	res.render('admin/allemployeelist/index');
-	/*if(req.body.hasOwnProperty("upd"))
+	log_in.getALL(function(result)
 	{
-		res.redirect('allemployeelist/update');
-	}
-
-	else if (req.body.hasOwnProperty("dlt"))
-	{
-  	res.redirect('allemployeelist/delete');
-	}
-	else
-	{
-		res.render('admin/allemployeelist/index');
-	}*/
+		res.render('admin/allemployeelist/index', {list: result});
+	});
 });
-
-/*router.get('/delete', function(req, res)
-{
-	res.render('admin/allemployeelist/delete/index');
-});*/
 
 router.post('/', function(req, res)
 {

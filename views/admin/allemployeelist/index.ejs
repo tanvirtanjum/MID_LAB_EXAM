@@ -8,36 +8,27 @@
     <form method='post'>
       <table style="width:100%;border: 2px, solid;" allign="middle">
         <thead>
+          <td> SL </td>
           <td> ID </td>
           <td> Name </td>
-          <td> Phone </td>
-          <td> Gender </td>
-          <td> Designation </td>
-          <td> Action 1 </td>
-          <td> Action 2 </td>
+          <td> Satus </td>
+          <td> ACTION </td>
+          <td> ACTION </td>
         </thead>
 
         <tbody>
-          <tr>
-            <td> 1 </td>
-            <td> Tanvir </td>
-            <td> 01515217821 </td>
-            <td> Male </td>
-            <td> Admin </td>
-            <td> <input type='submit' name="upd" value="UPDATE">  </td>
-            <td> <input type='submit' name="dlt" value="DELETE">   </td>
-          </tr>
-
-          <tr>
-            <td> 2 </td>
-            <td> Al-Amin </td>
-            <td> 01515217000 </td>
-            <td> Male </td>
-            <td> Employee </td>
-            <td> <input type='submit' name="upd" value="UPDATE">  </td>
-            <td> <input type='submit' name="dlt" value="DELETE">   </td>
-          </tr>
-       </tbody>
+            <% for(var i=0; i < list.length; i++){ %>
+            <tr>
+              <td><%= list[i].id %></td>
+              <td><%= list[i].username %></td>
+              <td><%= list[i].fname %></td>
+              <td><%= list[i].status %></td>
+              <td><a>UPDATE</a> </td>
+              <td><a>DELETE</a></td>
+            </tr>
+            <% } %>
+          </tbody>
+      </table>
       </table>
     </div>
 
