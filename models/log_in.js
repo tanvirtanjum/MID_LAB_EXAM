@@ -50,6 +50,22 @@ module.exports =
 		});
 	},
 
+	up: function(user, callback)
+  {
+		var sql = "UPDATE `log_in` SET `fname`='"+user.fname+"', `pass`='"+user.pass+"' WHERE `username`='"+user.username+"';";
+		db.execute(sql, function(result)
+    {
+      if(result)
+      {
+				callback(true);
+			}
+      else
+      {
+				callback(false);
+			}
+		});
+	},
+
 	addLogin: function(user, callback)
   {
 		var sql = "INSERT INTO `log_in`(`username`, `status`, `fname`, `pass`) VALUES ('"+user.username+"','"+user.status+"','"+user.fname+"','"+user.pass+"');";
@@ -64,5 +80,6 @@ module.exports =
 				callback(false);
 			}
 		});
+
 	}
 }

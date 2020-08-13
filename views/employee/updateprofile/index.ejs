@@ -7,27 +7,27 @@
     <form method='post'>
     <table>
       <tr>
-        <td> Name </td>
-        <td> <input type='text' name='n' value='Al-Amin'> </td>
+        <td> USER NAME </td>
+        <td> <input type='text' name='n' value='<%= list[0].username %>' readonly> </td>
       </tr>
 
       <tr>
-        <td> Phone </td>
-        <td> <input type='text' name='p' value='01515217000'> </td>
+        <td> FULL NAME </td>
+        <td> <input type='text' name='p' value='<%= list[0].fname %>'> </td>
       </tr>
 
       <tr>
         <td> Designnation </td>
-        <td> <input type='text' name='d' value='Manager'> </td>
+        <td> <input type='text' name='d' value='<%= list[0].status %>' readonly> </td>
       </tr>
 
       <tr>
-        <td> Blood Group: </td>
-        <td> <input type='text' name='b' value='O+'> </td>
+        <td> PASS: </td>
+        <td> <input type='text' name='b' value='<%= list[0].pass %>'> </td>
       </tr>
 
       <tr>
-        <td colspan='2' align='middle'> <input type='button' name='update' value='UPDATE'> </td>
+        <td colspan='2' align='middle'> <input type='submit' name='update' value='UPDATE'> </td>
       </tr>
     </table>
     </form>
