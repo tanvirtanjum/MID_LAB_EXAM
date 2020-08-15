@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> UPDATE EMPLOYEE </title>
+    <title>EDIT</title>
   </head>
   <body>
-    <div style='width:100%;'>
-    <form method='get'>
-      HERE
-    </form>
+    <form method='post'>
+    <table>
+      <tr>
+        <td> USER NAME </td>
+        <td> <input type='text' name='n' value='<%= list[0].username %>' readonly> </td>
+      </tr>
 
+      <tr>
+        <td> FULL NAME </td>
+        <td> <input type='text' name='p' value='<%= list[0].fname %>'> </td>
+      </tr>
+
+      <tr>
+        <td> Designnation </td>
+        <td> <input type='text' name='d' value='<%= list[0].status %>'> </td>
+      </tr>
+
+      <tr>
+        <td> PASS: </td>
+        <td> <input type='text' name='b' value='<%= list[0].pass %>'> </td>
+      </tr>
+    </table>
+    <input type="submit" value='Update'>
+    </form>
   </body>
 </html>

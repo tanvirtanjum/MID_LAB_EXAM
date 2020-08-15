@@ -23,8 +23,8 @@
               <td><%= list[i].username %></td>
               <td><%= list[i].fname %></td>
               <td><%= list[i].status %></td>
-              <td><a>UPDATE</a> </td>
-              <td><a>DELETE</a></td>
+              <td><a a href="/admin/update/<%= list[i].username %>">UPDATE</a> </td>
+              <td><a a href="/admin/delete/<%= list[i].username %>">DELETE</a></td>
             </tr>
             <% } %>
           </tbody>

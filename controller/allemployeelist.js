@@ -11,17 +11,4 @@ router.get('/', function(req, res)
 	});
 });
 
-router.post('/', function(req, res)
-{
-	if(req.body.hasOwnProperty("upd"))
-	{
-		res.redirect('allemployeelist/update');
-	}
-
-	if (req.body.hasOwnProperty("dlt"))
-	{
-  	res.redirect('allemployeelist/delete');
-	}
-});
-
 module.exports = router;
