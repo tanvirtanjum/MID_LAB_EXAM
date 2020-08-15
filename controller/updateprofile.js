@@ -1,6 +1,7 @@
 var express = require('express');
 //const fileUpload = require('express-fileupload');
 var router = express.Router();
+const { upload } = require('../app');
 
 var log_in 	= require.main.require('./models/log_in');
 
