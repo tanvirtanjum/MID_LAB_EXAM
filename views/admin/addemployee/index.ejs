@@ -2,23 +2,61 @@
 <html>
   <head>
     <title> ADD EMPLOYEE </title>
+    <script>
+      function validate()
+      {
+        var a = document.getElementById('a').value;
+        var b = document.getElementById('b').value;
+        var c = document.getElementById('c').value;
+        var name = document.getElementById('c').value;
+
+        var err = false;
+        if(a.length < 1)
+        {
+          err = true;
+          document.getElementById("at").innerHTML = "*";
+          //document.getElementById("at").innerHTML ="*";
+        }
+        if(b.length < 1)
+        {
+          err = true;
+          document.getElementById("bt").innerHTML = "*";
+          //document.getElementById("at").innerHTML ="*";
+        }
+        if(c.length < 8)
+        {
+          err = true;
+          document.getElementById("ct").innerHTML = "*";
+          //document.getElementById("at").innerHTML ="*";
+        }
+
+        if(!err)
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+      }
+    </script>
   </head>
   <body>
     <form method='post'>
       <table>
         <tr>
           <td> User Name: </td>
-          <td> <input type='text' name='uname'> </td>
+          <td> <input type='text' id="a" name='uname'> <span id="at" style="color:red;"> </span> </td>
         </tr>
 
         <tr>
           <td> Full Name: </td>
-          <td> <input type='text' name='fname'> </td>
+          <td> <input type='text' id="b" name='fname'> <span id="bt" style="color:red;"> </span> </td>
         </tr>
 
         <tr>
           <td> Pass: </td>
-          <td> <input type='password' name='pass'> </td>
+          <td> <input type='text' id="c" name='pass'> <span id="ct" style="color:red;"> </span> </td>
         </tr>
 
         <tr>
@@ -32,7 +70,7 @@
         </tr>
 
         <tr>
-          <td colsapn='2' align='center'> <input type='submit' name='add' value='ADD'> </td>
+          <td colsapn='2' align='center'> <input type='submit' name='add' value='ADD' onclick="return validate()"> </td>
         </tr>
       </table>
 
