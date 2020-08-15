@@ -1,4 +1,5 @@
 var express = require('express');
+//const fileUpload = require('express-fileupload');
 var router = express.Router();
 
 var log_in 	= require.main.require('./models/log_in');
@@ -8,6 +9,7 @@ var err =
 	a: "",
 	b: "",
 	c: "",
+	d: ""
 }
 
 
@@ -37,8 +39,10 @@ router.post('/', function(req, res)
 		fname:  req.body.p,
 		pass:  req.body.b,
 		con:  req.body.c,
+		//file: req.files.pc,
 		username: req.session.username
 	}
+	//let file = req.files.sampleFile;
 	var e = false;
 	if(user.fname.length < 1)
 	{
@@ -68,6 +72,20 @@ router.post('/', function(req, res)
 	{
 		err.c="";
 	}
+
+/*	if(!req.files || Object.keys(req.files).length === 0)
+	{
+		err.d="*";
+		e = true;
+	}
+	else
+	{
+		err.d="";
+		file.mv('/pic/'+req.session.username+'.jpg', function(err)
+		{
+			console.log(err);
+		});
+	} */
 
 	if(!e)
 	{
