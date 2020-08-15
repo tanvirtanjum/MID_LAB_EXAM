@@ -14,13 +14,21 @@ router.post('/', function(req, res)
 	{
 		username: req.body.uname,
 		fname: req.body.fname,
+		phone: req.body.phone,
 		status: req.body.des,
 		pass: req.body.pass
 	}
 
 	log_in.addLogin(user, function(resp)
 	{
-		res.redirect('/admin/allemployeelist');
+		if(resp)
+		{
+			res.redirect('/admin/allemployeelist');
+		}
+
+		else {
+			res.send("False");
+		}
 	})
 });
 

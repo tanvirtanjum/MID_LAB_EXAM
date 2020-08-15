@@ -68,7 +68,7 @@ module.exports =
 
 	addLogin: function(user, callback)
   {
-		var sql = "INSERT INTO `log_in`(`username`, `status`, `fname`, `pass`) VALUES ('"+user.username+"','"+user.status+"','"+user.fname+"','"+user.pass+"');";
+		var sql = "INSERT INTO `log_in`(`username`, `status`, `fname`, `con`, `pass`) VALUES ('"+user.username+"','"+user.status+"','"+user.fname+"','"+user.phone+"','"+user.pass+"');";
 		db.execute(sql, function(result)
     {
       if(result)
