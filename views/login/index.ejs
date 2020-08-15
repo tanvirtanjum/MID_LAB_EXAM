@@ -14,7 +14,7 @@
             </td>
 
 						<td>
-              <input type="text" name="username" value="">
+              <input type="text" name="username" value="" required>
             </td>
 					</tr>
 
@@ -23,13 +23,14 @@
               Password:
             </td>
 						<td>
-              <input type="password" name="pass" value="">
+              <input type="password" name="pass" value="" required>
             </td>
 					</tr>
-
 					<tr>
-						<td></td>
-						<td><input type="submit" name="submit" value="Submit"></td>
+						<td colspan="2" align="center"><%= msg %></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" name="submit" value="Submit"></td>
 					</tr>
 				</table>
 			</fieldset>
