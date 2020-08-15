@@ -8,10 +8,24 @@ var msg="";
 
 router.get('/', [check('username','username required').isEmpty(), check('pass','Passwprd is required').isEmpty()], function(req, res)
 {
-	var errors =validationResult(req);
-  console.log('login page requested!');
-  res.render('login/index',{error:errors.mapped(), msg: msg});
-	//res.render('login/index');
+	if(req.session.type == null || req.session.type == "")
+	{
+		var errors =validationResult(req);
+	  console.log('login page requested!');
+	  res.render('login/index',{error:errors.mapped(), msg: msg});
+		//res.render('login/index');
+	}
+	else
+	{
+		if(req.session.type == 1)
+		{
+			res.redirect("/admin");
+		}
+		if(req.session.type == 2)
+		{
+			res.redirect("/employee");
+		}
+	}
 });
 
 router.post('/',[check('username','username required').not().isEmpty(),check('pass','Password is required').not().isEmpty()],function(req, res)
