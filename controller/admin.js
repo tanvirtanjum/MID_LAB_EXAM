@@ -15,7 +15,7 @@ router.post('/', function(req, res)
 		res.redirect('admin/addemployee');
 	}
 
-	else if (req.body.hasOwnProperty("all"))
+	if (req.body.hasOwnProperty("all"))
 	{
 		res.redirect('admin/allemployeelist');
 	}
