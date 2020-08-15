@@ -1,6 +1,7 @@
 var express = require('express');
 var exSession = require('express-session');
 var bodyParser = require('body-parser');
+var fileUpload = require('express-fileupload');
 
 var login 		= require('./controller/login');
 var logout 		= require('./controller/logout');
@@ -18,6 +19,7 @@ app.set('view engine', 'ejs');
 
 //middleware
 app.use(bodyParser.json());
+app.use(fileUpload());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(exSession({secret: ' ', saveUninitialized: true, resave: false}));
 app.use(function(req, res, next)
