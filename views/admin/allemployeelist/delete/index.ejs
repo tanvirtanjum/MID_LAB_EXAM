@@ -13,20 +13,21 @@
 
       <tr>
         <td> FULL NAME </td>
-        <td> <input type='text' name='p' value='<%= list[0].fname %>'> </td>
+        <td> <input type='text' name='p' value='<%= list[0].fname %>' readonly></td>
       </tr>
 
       <tr>
         <td> Designnation </td>
-        <td> <input type='text' name='d' value='<%= list[0].status %>'> </td>
+        <td> <input type='text' name='d' value='<%= list[0].status %>' readonly> </td>
       </tr>
 
       <tr>
         <td> PASS: </td>
-        <td> <input type='text' name='b' value='<%= list[0].pass %>'> </td>
+        <td> <input type='text' name='b' value='<%= list[0].pass %>' readonly> </td>
       </tr>
     </table>
-    <input type="submit" value='Update'>
+    <input type="submit" name="y" value='Yes'>
+    <input type="submit" name="n" value='No'>
     </form>
   </body>
 </html>

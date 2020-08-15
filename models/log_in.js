@@ -80,6 +80,21 @@ module.exports =
 				callback(false);
 			}
 		});
+	},
 
+	del: function(user, callback)
+  {
+		var sql = "DELETE FROM `log_in` WHERE `username`='"+user+"';";
+		db.execute(sql, function(result)
+    {
+      if(result)
+      {
+				callback(true);
+			}
+      else
+      {
+				callback(false);
+			}
+		});
 	}
 }

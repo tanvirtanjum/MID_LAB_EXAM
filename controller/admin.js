@@ -62,16 +62,24 @@ router.get('/delete/:id', function(req, res)
 
 router.post('/delete/:id', function(req, res)
 {
-	var user=
+	if(req.body.hasOwnProperty("y"))
 	{
-		fname:  req.body.p,
-		pass:  req.body.b,
-		username: req.body.n
+		var user=
+		{
+			fname:  req.body.p,
+			pass:  req.body.b,
+			username: req.body.n
+		}
+		log_in.del(req.params.id, function(resp)
+		{
+			res.redirect('/admin/allemployeelist');
+		});
 	}
-	log_in.up(user, function(resp)
+
+	else if (req.body.hasOwnProperty("n"))
 	{
 		res.redirect('/admin/allemployeelist');
-	});
+	}
 });
 
 
