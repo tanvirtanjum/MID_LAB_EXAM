@@ -13,12 +13,12 @@
 
       <tr>
         <td> FULL NAME </td>
-        <td> <input type='text' name='p' value='<%= list[0].fname %>'> </td>
+        <td> <input type='text' name='p' value='<%= list[0].fname %>'> <span style="color: red"> <%= err.a %> </span></td>
       </tr>
 
       <tr>
         <td> MOBILE </td>
-        <td> <input type='text' name='c' value='<%= list[0].con %>'> </td>
+        <td> <input type='text' name='c' value='<%= list[0].con %>'> <span style="color: red"> <%= err.c %> </span></td>
       </tr>
 
       <tr>
@@ -28,7 +28,7 @@
 
       <tr>
         <td> PASS: </td>
-        <td> <input type='text' name='b' value='<%= list[0].pass %>'> </td>
+        <td> <input type='text' name='b' value='<%= list[0].pass %>'> <span style="color: red"> <%= err.b %> </span></td>
       </tr>
 
       <tr>

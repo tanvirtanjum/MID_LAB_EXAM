@@ -52,7 +52,7 @@ module.exports =
 
 	up: function(user, callback)
   {
-		var sql = "UPDATE `log_in` SET `fname`='"+user.fname+"', `pass`='"+user.pass+"' WHERE `username`='"+user.username+"';";
+		var sql = "UPDATE `log_in` SET `fname`='"+user.fname+"', `pass`='"+user.pass+"', `con`='"+user.con+"' WHERE `username`='"+user.username+"';";
 		db.execute(sql, function(result)
     {
       if(result)

@@ -3,6 +3,13 @@ var router = express.Router();
 
 var log_in 	= require.main.require('./models/log_in');
 
+var err =
+{
+	a: "",
+	b: "",
+	c: "",
+}
+
 router.get('/', function(req, res)
 {
 	res.render('admin/index');
@@ -30,7 +37,7 @@ router.get('/update/:id', function(req, res)
 	}
 	log_in.getINFO(user,function(result)
 	{
-		res.render('admin/allemployeelist/update/index', {list: result});
+		res.render('admin/allemployeelist/update/index', {list: result, err: err});
 	});
 });
 
@@ -40,12 +47,51 @@ router.post('/update/:id', function(req, res)
 	{
 		fname:  req.body.p,
 		pass:  req.body.b,
+		con:  req.body.c,
 		username: req.body.n
 	}
-	log_in.up(user, function(resp)
+
+	var e = false;
+	if(user.fname.length < 1)
 	{
-		res.redirect('/admin/allemployeelist');
-	});
+		//console.log("null");
+		err.a="*";
+		e = true;
+	}
+	else
+	{
+		err.a="";
+	}
+	if(user.pass.length < 8)
+	{
+		err.b="*";
+		e = true;
+	}
+	else
+	{
+		err.b="";
+	}
+	if(user.con.length < 11 || user.con.length > 11)
+	{
+		err.c="*";
+		e = true;
+	}
+	else
+	{
+		err.c="";
+	}
+
+	if(!e)
+	{
+		log_in.up(user, function(resp)
+		{
+			res.redirect('/admin/allemployeelist');
+		});
+	}
+	else
+	{
+		res.redirect('/admin/update/'+req.params.id);
+	}
 });
 
 router.get('/delete/:id', function(req, res)
