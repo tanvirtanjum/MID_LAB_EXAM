@@ -12,7 +12,14 @@ var err =
 
 router.get('/', function(req, res)
 {
-	res.render('admin/index');
+	if(req.session.type == 1)
+	{
+		res.render('admin/index');
+	}
+	else
+	{
+		res.redirect("/login");
+	}
 });
 
 router.post('/', function(req, res)

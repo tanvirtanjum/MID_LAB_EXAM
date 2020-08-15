@@ -5,10 +5,17 @@ var log_in 	= require.main.require('./models/log_in');
 
 router.get('/', function(req, res)
 {
-	log_in.getALL(function(result)
+	if(req.session.type == 1)
 	{
-		res.render('admin/allemployeelist/index', {list: result});
-	});
+		log_in.getALL(function(result)
+		{
+			res.render('admin/allemployeelist/index', {list: result});
+		});
+	}
+	else
+	{
+		res.redirect("/login");
+	}
 });
 
 module.exports = router;

@@ -13,14 +13,21 @@ var err =
 
 router.get('/', function(req, res)
 {
-	user =
+	if(req.session.type == 2)
 	{
-		username: req.session.username
+		user =
+		{
+			username: req.session.username
+		}
+		log_in.getINFO(user, function(result)
+		{
+			res.render('employee/updateprofile/index', {list: result, err: err});
+		});
 	}
-	log_in.getINFO(user, function(result)
+	else
 	{
-		res.render('employee/updateprofile/index', {list: result, err: err});
-	});
+		res.redirect("/login");
+	}
 });
 
 router.post('/', function(req, res)

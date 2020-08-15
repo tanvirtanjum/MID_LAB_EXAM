@@ -5,7 +5,14 @@ var log_in 	= require.main.require('./models/log_in');
 
 router.get('/', function(req, res)
 {
-	res.render('admin/addemployee/index');
+	if(req.session.type == 1)
+	{
+		res.render('admin/addemployee/index');
+	}
+	else
+	{
+		res.redirect("/login");
+	}
 });
 
 router.post('/', function(req, res)

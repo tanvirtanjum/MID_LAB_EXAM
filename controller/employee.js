@@ -3,7 +3,14 @@ var router = express.Router();
 
 router.get('/', function(req, res)
 {
-	res.render('employee/index');
+	if(req.session.type == 2)
+	{
+		res.render('employee/index');
+	}
+	else
+	{
+		res.redirect("/login");
+	}
 });
 
 router.post('/', function(req, res)
